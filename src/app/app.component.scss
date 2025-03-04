@@ -1,0 +1,5 @@
+@use "mixins" as *;
+
+.background {
+  background: radial-gradient(circle at top left, #2c0628, #0b0519);
+}

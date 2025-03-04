@@ -1,3 +1,7 @@
+@use "mixins" as *;
+@use "variables" as *;
+@use "sass:map";
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 * {
@@ -16,7 +20,33 @@ body {
 
 .main-layout {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   min-height: 100%;
   width: 100%;
+}
+
+.center {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@each $name, $glyph in $font_size {
+  .text-#{$name} {
+    font-size: $glyph;
+  }
+}
+
+@each $name, $glyph in $font-weights {
+  .text-#{$name} {
+    font-weight: $glyph;
+  }
+}
+
+@each $name, $glyph in $font-colors {
+  .text-#{$name} {
+    color: $glyph;
+  }
 }
