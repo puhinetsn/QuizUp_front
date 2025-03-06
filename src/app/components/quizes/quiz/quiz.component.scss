@@ -1,0 +1,95 @@
+@use "mixins" as *;
+@use "variables" as *;
+@use "sass:map";
+
+.quiz {
+  @include flex(row, space-around);
+  border: 2px solid #a55ae3;
+  border-radius: 20px;
+  background: linear-gradient(#23053f, #5e2775);
+  box-shadow: 0 0 16px 2px #f44fa2;
+  width: 300px;
+  padding: 10px;
+
+  h2 {
+    font-size: map.get($font_size, "md");
+  }
+  p {
+    font-size: map.get($font_size, "sm");
+  }
+
+  &_category {
+    background-color: #bba5d5;
+    border-radius: 10px;
+    padding: 5px;
+    img {
+      width: 30px;
+    }
+  }
+
+  &_info {
+    @include flex(column, space-between);
+    height: 40px;
+  }
+}
+
+@include md {
+  .quiz {
+    width: 600px;
+    padding: 20px;
+
+    h2 {
+      font-size: map.get($font_size, "2xl");
+    }
+    p {
+      font-size: map.get($font_size, "xl");
+    }
+
+    &_category {
+      padding: 10px;
+      img {
+        width: 60px;
+      }
+    }
+
+    &_info {
+      height: 80px;
+    }
+
+    &_play button {
+      width: 130px;
+      font-size: map.get($font_size, "xl");
+    }
+  }
+}
+
+@include lg {
+  .quiz {
+    width: 800px;
+    padding: 30px;
+
+    h2 {
+      font-size: map.get($font_size, "3xl");
+    }
+    p {
+      font-size: map.get($font_size, "2xl");
+    }
+
+    &_category {
+      padding: 10px;
+      img {
+        width: 70px;
+      }
+    }
+
+    &_info {
+      height: 100px;
+    }
+
+    &_play button {
+      width: 150px;
+      font-size: map.get($font_size, "2xl");
+      padding: 25px 0;
+    }
+  }
+}

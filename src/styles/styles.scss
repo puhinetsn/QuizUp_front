@@ -1,8 +1,26 @@
+@use "@angular/material" as mat;
 @use "mixins" as *;
 @use "variables" as *;
 @use "sass:map";
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@include mat.core();
+
+$quizup_front-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$magenta-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+:root {
+  @include mat.all-component-themes($quizup_front-theme);
+}
 
 * {
   padding: 0;
@@ -28,7 +46,6 @@ body {
 
 .center {
   display: flex;
-  text-align: center;
   align-items: center;
   flex-direction: column;
 }
@@ -37,6 +54,14 @@ body {
   .text-#{$name} {
     font-size: $glyph;
   }
+
+  // @each $bp, $width in $breakpoints {
+  //   @media (min-width: $width) {
+  //     .#{$bp}\:text-#{$name} {
+  //       font-size: $glyph;
+  //     }
+  //   }
+  // }
 }
 
 @each $name, $glyph in $font-weights {
@@ -49,4 +74,13 @@ body {
   .text-#{$name} {
     color: $glyph;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
