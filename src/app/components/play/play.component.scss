@@ -1,0 +1,58 @@
+@use "mixins" as *;
+@use "variables" as *;
+@use "sass:map";
+
+.play {
+  @include flex(column, space-around);
+  min-height: 100%;
+  padding: 50px;
+  gap: 30px;
+
+  &_answers {
+    @include flex(column, space-around);
+    width: 100%;
+    gap: 40px;
+  }
+
+  &_answers button {
+    width: 100%;
+    border-radius: 20px;
+    padding: 30px;
+  }
+}
+
+@include md {
+  .play {
+    padding: 80px;
+    @include flex(column, center);
+    gap: 70px;
+    &_answers {
+      width: 80%;
+    }
+    &_answers button {
+      font-size: map.get($font_size, "xl");
+    }
+  }
+}
+
+@include lg {
+  .play {
+    padding: 120px;
+
+    &_answers {
+      width: 70%;
+    }
+
+    &_answers button {
+      padding: 40px;
+      font-size: map.get($font_size, "2xl");
+    }
+  }
+}
+
+@include xl {
+  .play {
+    padding: 60px 120px;
+    @include flex(row, space-around);
+  }
+}

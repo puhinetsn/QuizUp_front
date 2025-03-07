@@ -1,0 +1,20 @@
+@use "mixins" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "sass:map";
+
+.question {
+  &_text p,
+  mat-progress-bar {
+    margin-bottom: 10px;
+  }
+}
+
+@include md {
+  .question {
+    &_text p,
+    mat-progress-bar {
+      margin-bottom: 20px;
+    }
+  }
+}
