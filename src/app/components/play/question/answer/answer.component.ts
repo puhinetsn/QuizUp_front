@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatRadioModule } from '@angular/material/radio';
 
 export enum AnswerStatus {
   BASIC,
@@ -11,10 +10,11 @@ export enum AnswerStatus {
 
 @Component({
   selector: 'app-answer',
-  imports: [MatRadioModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './answer.component.html',
   styleUrl: './answer.component.scss',
 })
 export class AnswerComponent {
   answers: string[] = ['Georgia', 'California', 'New York', 'Texas'];
+  answer = input.required<string>();
 }

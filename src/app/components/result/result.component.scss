@@ -1,0 +1,32 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+.result {
+  @include flex(column, space-around);
+  gap: 50px;
+  padding: 50px 30px;
+  text-align: center;
+  width: 350px;
+  margin: 0 auto;
+  &_question {
+    width: 100%;
+  }
+}
+
+.result button {
+  width: 100%;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+@include md {
+  .result {
+    width: 700px;
+  }
+}
+
+@include lg {
+  .result {
+    width: 1000px;
+  }
+}

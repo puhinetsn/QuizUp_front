@@ -6,21 +6,9 @@
   width: 100%;
 }
 
-.selected {
-  box-shadow: 0 0 16px 2px #5e2775;
-}
-
-.wrong {
-  box-shadow: 0 0 16px 2px #752727;
-}
-
-.right {
-  box-shadow: 0 0 16px 2px #17461c;
-}
-
 .answer {
   background: linear-gradient(#23053f, #5e2775);
-  box-shadow: 0 0 16px 2px #f44fa2;
+
   width: 100%;
   text-align: center;
   padding: 20px;

@@ -15,19 +15,18 @@ export class QuizesComponent {
   }[] = [];
 
   constructor() {
-    const quizesMap = new Map<string, (typeof questions)[0][]>();
-    questions.forEach((q) => {
-      const categoryQuestions = quizesMap.get(q.category);
-      if (!categoryQuestions) {
-        quizesMap.set(q.category, [q]);
-      } else {
-        categoryQuestions.push(q);
-      }
-    });
-
-    this.quizes = Array.from(quizesMap.entries()).map((e) => ({
-      category: e[0],
-      questions: e[1],
-    }));
+    //   const quizesMap = new Map<string, (typeof questions)[0][]>();
+    //   questions.forEach((q) => {
+    //     const categoryQuestions = quizesMap.get(q.category);
+    //     if (!categoryQuestions) {
+    //       quizesMap.set(q.category, [q]);
+    //     } else {
+    //       categoryQuestions.push(q);
+    //     }
+    //   });
+    //   this.quizes = Array.from(quizesMap.entries()).map((e) => ({
+    //     category: e[0],
+    //     questions: e[1],
+    //   }));
   }
 }

@@ -20,6 +20,12 @@ $quizup_front-theme: mat.define-theme(
 
 :root {
   @include mat.all-component-themes($quizup_front-theme);
+  @include mat.snack-bar-overrides(
+    (
+      container-color: #a900a9,
+      supporting-text-color: white,
+    )
+  );
 }
 
 * {
@@ -44,24 +50,40 @@ body {
   width: 100%;
 }
 
+.main-logo {
+  width: fit-content;
+  background: linear-gradient(90deg, #f902e1, #6600ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .center {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
+.basic {
+  box-shadow: 0 0 16px 2px #f44fa2;
+}
+
+.selected {
+  box-shadow: 0 0 16px 2px #5e2775;
+}
+
+.wrong {
+  box-shadow: 0 0 16px 2px #752727;
+}
+
+.right {
+  box-shadow: 0 0 16px 2px #17461c;
+}
+
 @each $name, $glyph in $font_size {
   .text-#{$name} {
     font-size: $glyph;
   }
-
-  // @each $bp, $width in $breakpoints {
-  //   @media (min-width: $width) {
-  //     .#{$bp}\:text-#{$name} {
-  //       font-size: $glyph;
-  //     }
-  //   }
-  // }
 }
 
 @each $name, $glyph in $font-weights {

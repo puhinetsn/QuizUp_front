@@ -30,6 +30,7 @@
   &_info {
     @include flex(column, space-between);
     height: 40px;
+    flex-grow: 1;
   }
 }
 
