@@ -1,0 +1,6 @@
+@use "mixins" as *;
+
+.quizes {
+  @include flex(column, space-around);
+  gap: 50px;
+}

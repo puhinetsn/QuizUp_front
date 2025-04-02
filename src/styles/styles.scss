@@ -1,0 +1,99 @@
+@use "@angular/material" as mat;
+@use "mixins" as *;
+@use "variables" as *;
+@use "sass:map";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@include mat.core();
+
+$quizup_front-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$magenta-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+:root {
+  @include mat.all-component-themes($quizup_front-theme);
+  @include mat.snack-bar-overrides(
+    (
+      container-color: #a900a9,
+      supporting-text-color: white,
+    )
+  );
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+  width: 100%;
+}
+
+.main-logo {
+  width: fit-content;
+  background: linear-gradient(90deg, #f902e1, #6600ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.basic {
+  box-shadow: 0 0 16px 2px #f44fa2;
+}
+
+.selected {
+  box-shadow: 0 0 16px 2px #5e2775;
+}
+
+.wrong {
+  box-shadow: 0 0 16px 2px #752727;
+}
+
+.right {
+  box-shadow: 0 0 16px 2px #17461c;
+}
+
+@each $name, $glyph in $font_size {
+  .text-#{$name} {
+    font-size: $glyph;
+  }
+}
+
+@each $name, $glyph in $font-weights {
+  .text-#{$name} {
+    font-weight: $glyph;
+  }
+}
+
+@each $name, $glyph in $font-colors {
+  .text-#{$name} {
+    color: $glyph;
+  }
+}

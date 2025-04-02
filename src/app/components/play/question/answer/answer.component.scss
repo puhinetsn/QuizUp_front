@@ -1,0 +1,29 @@
+@use "mixins" as *;
+@use "variables" as *;
+@use "sass:map";
+
+:host {
+  width: 100%;
+}
+
+.answer {
+  background: linear-gradient(#23053f, #5e2775);
+
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+@include md {
+  .answer p {
+    font-size: map.get($font_size, "xl");
+  }
+}
+
+@include lg {
+  .answer {
+    padding: 30px;
+    font-size: map.get($font_size, "2xl");
+  }
+}

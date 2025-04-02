@@ -1,0 +1,46 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+.answers {
+  @include flex(column, space-around);
+  gap: 30px;
+
+  &_block {
+    @include flex(column, space-around);
+    gap: 40px;
+    width: 100%;
+
+    &_answer {
+      @include flex(column, space-around);
+      background: linear-gradient(#23053f, #5e2775);
+      border-radius: 20px;
+      height: 100px;
+      padding: 10px;
+      flex-grow: 1;
+      width: 100%;
+    }
+  }
+}
+
+@include md {
+  .answers {
+    &_block {
+      &_answer {
+        @include flex(row, space-evenly);
+        padding: 20px;
+      }
+    }
+  }
+}
+
+@include lg {
+  .answers {
+    &_block {
+      @include flex(row, space-around);
+      &_answer {
+        padding: 30px;
+        width: 40%;
+      }
+    }
+  }
+}
