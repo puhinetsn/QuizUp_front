@@ -10,7 +10,7 @@ export class CategoriesService {
   private http = inject(HttpClient);
   private expressUrl = 'http://localhost:3000/api';
 
-  public getCategories(): Observable<Category> {
-    return this.http.get<Category>(`${this.expressUrl}/categories`);
+  public getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.expressUrl}/categories`);
   }
 }

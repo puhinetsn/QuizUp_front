@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Question } from '../models/quiz.model';
+import { Question, Quiz } from '../models/quiz.model';
 import { Difficulty } from '../models/enums/difficulty.enum';
 
 @Injectable({
@@ -15,9 +15,9 @@ export class QuestionsService {
     num: number,
     difficulty: Difficulty,
     category: string
-  ): Observable<Question> {
-    return this.http.get<Question>(
-      `${this.expressUrl}/questions?number=${num}&difficulty=${difficulty}&category=${category}`,
+  ): Observable<Quiz> {
+    return this.http.get<Quiz>(
+      `${this.expressUrl}/questions/${category}?number=${num}&difficulty=${difficulty}`,
       {
         params: {
           num,

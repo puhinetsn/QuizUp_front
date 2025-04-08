@@ -1,11 +1,11 @@
 <div class="quiz">
   <div class="quiz_category">
-    <img src="https://i.postimg.cc/yxGHS520/general-knowledge.png" />
+    <img [src]="quiz().url" />
   </div>
 
   <div class="quiz_info">
-    <h2 class="text-primary">General Knowledge</h2>
-    <p class="text-primary">Questions: 10</p>
+    <h2 class="text-primary">{{ quiz().category }}</h2>
+    <p class="text-primary">Questions: {{ quiz().quiz.length }}</p>
   </div>
 
   <div class="quiz_play">

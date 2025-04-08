@@ -1,3 +1,5 @@
+import { Category } from './categories.model';
+
 export interface Question {
   type: string;
   difficulty: string;
@@ -8,6 +10,8 @@ export interface Question {
 }
 
 export interface Quiz {
-  quiz: Question[];
+  _id: string;
   category: string;
+  url: string;
+  quiz: Question[];
 }

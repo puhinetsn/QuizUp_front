@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { Quiz } from '../../../models/quiz.model';
 
 @Component({
   selector: 'app-quiz',
@@ -7,4 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
 })
-export class QuizComponent {}
+export class QuizComponent {
+  quiz = input.required<Quiz>();
+}
