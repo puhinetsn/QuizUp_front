@@ -15,6 +15,5 @@ export enum AnswerStatus {
   styleUrl: './answer.component.scss',
 })
 export class AnswerComponent {
-  answers: string[] = ['Georgia', 'California', 'New York', 'Texas'];
   answer = input.required<string>();
 }

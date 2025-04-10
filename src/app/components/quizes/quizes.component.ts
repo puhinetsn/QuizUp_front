@@ -10,7 +10,6 @@ import { QuestionsService } from '../../services/questions.service';
 import { randomArrEl, randomEnum, randomInt } from '../../utils/random.util';
 import { Difficulty } from '../../models/enums/difficulty.enum';
 import { quizActions } from '../../state/actions/quiz.actions';
-import { Quiz } from '../../models/quiz.model';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -25,6 +24,7 @@ export class QuizesComponent implements OnInit, OnDestroy {
   private store = inject(Store);
   private categoriesService = inject(CategoriesService);
   private questionsService = inject(QuestionsService);
+
   quizzes$ = this.store.select(selectQuizzes);
   categories$ = this.store.select(selectCategories);
 

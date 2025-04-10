@@ -6,7 +6,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideStore } from '@ngrx/store';
 import { provideHttpClient } from '@angular/common/http';
 import { categoriesReducer } from './state/reducers/category.reducer';
-import { quizLoad } from './state/reducers/quiz.reducer';
+import { quizLoad, quizSelect } from './state/reducers/quiz.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +15,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideAnimationsAsync(),
     provideStore(),
-    provideStore({ categories: categoriesReducer, quizzes: quizLoad }),
+    provideStore({
+      categories: categoriesReducer,
+      quizzes: quizLoad,
+      quiz: quizSelect,
+    }),
   ],
 };

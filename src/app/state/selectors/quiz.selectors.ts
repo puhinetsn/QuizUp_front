@@ -4,4 +4,4 @@ import { Quiz } from '../../models/quiz.model';
 export const selectQuizzes =
   createFeatureSelector<ReadonlyArray<Quiz>>('quizzes');
 
-export const selectQuiz = createFeatureSelector<Quiz>('quiz');
+export const selectQuiz = createFeatureSelector<{ selected: Quiz }>('quiz');
