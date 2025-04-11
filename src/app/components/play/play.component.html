@@ -5,7 +5,9 @@
   </div>
 
   <div class="play_answers">
-    <app-answer [answer]="'answer'" />
+    @for (answer of answers$ | async; track $index) {
+    <app-answer [answer]="answer" />
+    }
 
     <button class="play_button" mat-flat-button>Submit</button>
   </div>

@@ -1,5 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { currentQuestion } from '../../../../state/selectors/question.selectors';
 
 export enum AnswerStatus {
   BASIC,

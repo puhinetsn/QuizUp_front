@@ -12,19 +12,15 @@ export class QuestionsService {
   private expressUrl = 'http://localhost:3000/api';
 
   public getQuestion(
-    num: number,
+    number: number,
     difficulty: Difficulty,
     category: string
   ): Observable<Quiz> {
-    return this.http.get<Quiz>(
-      `${this.expressUrl}/questions/${category}?number=${num}&difficulty=${difficulty}`,
-      {
-        params: {
-          num,
-          difficulty,
-          category,
-        },
-      }
-    );
+    return this.http.get<Quiz>(`${this.expressUrl}/questions/${category}`, {
+      params: {
+        number,
+        difficulty,
+      },
+    });
   }
 }
