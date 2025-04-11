@@ -37,7 +37,7 @@ export class QuizesComponent implements OnInit, OnDestroy {
 
         const quizzes = Array.from({ length: 10 }).map(() =>
           this.questionsService.getQuestion(
-            randomInt(1, 5),
+            randomInt(1, 10),
             randomEnum(Difficulty) as Difficulty,
             randomArrEl(categories)._id
           )

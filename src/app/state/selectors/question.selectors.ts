@@ -1,14 +1,17 @@
-import { createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { selectQuiz } from './quiz.selectors';
 import { selectAnswers } from './answer.selectors';
 
 export const selectQuizQuestions = createSelector(
   selectQuiz,
-  (quiz) => quiz.quiz
+  ({ selected }) => selected.quiz
 );
+
+export const currentQuestionIndex =
+  createFeatureSelector<number>('questionIndex');
 
 export const currentQuestion = createSelector(
   selectQuizQuestions,
-  selectAnswers,
-  (questions, answers) => questions[answers.length]
+  currentQuestionIndex,
+  (questions, index) => questions[index]
 );

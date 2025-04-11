@@ -11,5 +11,5 @@ export const initialAnswerReducer = createReducer(
 
 export const initialAnswerArrayReducer = createReducer(
   initialAnswerArray,
-  on(answers.questionAnswered, (state, { answer }) => [...state, answer])
+  on(answers.questionSubmitted, (state, { answer }) => [...state, answer])
 );

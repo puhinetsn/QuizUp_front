@@ -7,6 +7,7 @@ import { provideStore } from '@ngrx/store';
 import { provideHttpClient } from '@angular/common/http';
 import { categoriesReducer } from './state/reducers/category.reducer';
 import { quizLoad, quizSelect } from './state/reducers/quiz.reducer';
+import { questionIndexReducer } from './state/reducers/question.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
       categories: categoriesReducer,
       quizzes: quizLoad,
       quiz: quizSelect,
+      questionIndex: questionIndexReducer,
     }),
   ],
 };

@@ -1,11 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { questionAnswer } from '../actions/question.actions';
+import { answers } from '../actions/answer.action';
+import { quizSelect } from './quiz.reducer';
+import { quizActions } from '../actions/quiz.actions';
 
-const initialState: {
-  answer: string | null;
-} = { answer: null };
-
-export const categoriesReducer = createReducer(
-  initialState,
-  on(questionAnswer, (state, { answer }) => ({ answer }))
+export const questionIndexReducer = createReducer(
+  0,
+  on(answers.questionSubmitted, (state) => state + 1),
+  on(quizActions.quizSelected, () => 0)
 );
