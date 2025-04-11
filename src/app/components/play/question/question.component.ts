@@ -16,6 +16,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class QuestionComponent {
   private store = inject(Store);
+
   questions$ = this.store.select(selectQuizQuestions);
   question$ = this.store.select(currentQuestion);
   questionIndex$ = this.store.select(currentQuestionIndex);

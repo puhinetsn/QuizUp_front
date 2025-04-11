@@ -6,7 +6,13 @@
         {{ (questions$ | async)?.length }}</i
       >
     </p>
-    <mat-progress-bar mode="determinate" value="89"></mat-progress-bar>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="
+        ((((questionIndex$ | async) || 0) + 1) * 100) /
+        ((questions$ | async)?.length || 1)
+      "
+    ></mat-progress-bar>
     <h1 class="text-primary text-3xl">
       {{ (question$ | async)?.question }}
     </h1>
