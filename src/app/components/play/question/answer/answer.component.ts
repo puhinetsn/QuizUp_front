@@ -4,10 +4,10 @@ import { Store } from '@ngrx/store';
 import { currentQuestion } from '../../../../state/selectors/question.selectors';
 
 export enum AnswerStatus {
-  BASIC,
-  SELECTED,
-  RIGHT,
-  WRONG,
+  BASIC = 'basic',
+  SELECTED = 'selected',
+  RIGHT = 'right',
+  WRONG = 'wrong',
 }
 
 @Component({
@@ -18,4 +18,5 @@ export enum AnswerStatus {
 })
 export class AnswerComponent {
   answer = input.required<string>();
+  answerStatus = input.required<AnswerStatus>();
 }
