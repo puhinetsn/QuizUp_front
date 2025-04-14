@@ -1,15 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { answers } from '../actions/answer.action';
+import { quizActions } from '../actions/quiz.actions';
 
-export const initialAnswer: string = '';
-export const initialUserAnswers: string[] = [];
-
-export const initialAnswerReducer = createReducer(
-  initialAnswer,
-  on(answers.questionAnswered, (_state, { answer }) => answer)
-);
+const initialUserAnswers: string[] = [];
 
 export const userAnswersReducer = createReducer(
   initialUserAnswers,
-  on(answers.questionSubmitted, (state, { answer }) => [...state, answer])
+  on(answers.questionSubmitted, (state, { answer }) => [...state, answer]),
+  on(quizActions.quizSelected, () => [])
 );

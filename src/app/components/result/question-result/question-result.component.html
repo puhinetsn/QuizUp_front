@@ -3,11 +3,20 @@
     {{ question().question }}
   </h1>
   <div class="answers_block">
-    <div class="answers_block_answer text-primary basic">
+    <div
+      [class]="{
+        answers_block_answer: true,
+        'text-primary': true,
+        basic: answerStatus() === status.BASIC,
+        selected: answerStatus() === status.SELECTED,
+        wrong: answerStatus() === status.WRONG,
+        right: answerStatus() === status.RIGHT
+      }"
+    >
       <h2>Your answer:</h2>
       <p>{{ answer() }}</p>
     </div>
-    <div class="answers_block_answer text-primary basic">
+    <div class="answers_block_answer text-primary right">
       <h2>Correct answer:</h2>
       <p>{{ question().correct_answer }}</p>
     </div>

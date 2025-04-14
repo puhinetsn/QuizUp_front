@@ -8,6 +8,7 @@ import {
 } from '../../state/selectors/answer.selectors';
 import { AsyncPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { AnswerStatus } from '../play/question/answer/answer.component';
 
 @Component({
   selector: 'app-result',
@@ -21,6 +22,7 @@ export class ResultComponent {
 
   score$ = this.store.select(quizScore);
   questions$ = this.store.select(questionAndAnswer);
+  status = AnswerStatus;
 
   goHome() {
     this.router.navigate(['']);

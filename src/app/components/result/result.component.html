@@ -8,6 +8,11 @@
     class="result_question"
     [question]="question.question"
     [answer]="question.answer"
+    [answerStatus]="
+      question.answer === question.question.correct_answer
+        ? status.RIGHT
+        : status.WRONG
+    "
   />
   }
 

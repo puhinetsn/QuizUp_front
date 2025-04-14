@@ -1,3 +1,12 @@
-<div class="answer text-primary" [class]="answerStatus()">
+<div
+  [class]="{
+    answer: true,
+    'text-primary': true,
+    basic: answerStatus() === status.BASIC,
+    selected: answerStatus() === status.SELECTED,
+    wrong: answerStatus() === status.WRONG,
+    right: answerStatus() === status.RIGHT
+  }"
+>
   <p>{{ answer() }}</p>
 </div>

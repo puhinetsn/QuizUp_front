@@ -1,7 +1,5 @@
 import { Component, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { currentQuestion } from '../../../../state/selectors/question.selectors';
 
 export enum AnswerStatus {
   BASIC = 'basic',
@@ -19,4 +17,6 @@ export enum AnswerStatus {
 export class AnswerComponent {
   answer = input.required<string>();
   answerStatus = input.required<AnswerStatus>();
+
+  status = AnswerStatus;
 }

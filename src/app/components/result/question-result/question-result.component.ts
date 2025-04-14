@@ -1,11 +1,6 @@
-import { Component, inject, input } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  currentQuestion,
-  currentQuestionIndex,
-} from '../../../state/selectors/question.selectors';
-import { AsyncPipe } from '@angular/common';
+import { Component, input } from '@angular/core';
 import { Question } from '../../../models/quiz.model';
+import { AnswerStatus } from '../../play/question/answer/answer.component';
 
 @Component({
   selector: 'app-question-result',
@@ -14,7 +9,9 @@ import { Question } from '../../../models/quiz.model';
   styleUrl: './question-result.component.scss',
 })
 export class QuestionResultComponent {
-  private store = inject(Store);
   question = input.required<Question>();
   answer = input.required<string>();
+  answerStatus = input.required<AnswerStatus>();
+
+  status = AnswerStatus;
 }
