@@ -1,17 +1,20 @@
 <div class="play">
-  <div class="play_navigation">
+  <div class="play_navigation" (click)="goHome()">
     <button mat-flat-button>Go Home</button>
     <app-question />
   </div>
 
   <div class="play_answers">
+    @for (answer of answers$ | async; track $index) {
     <app-answer
-      [answer]="'answer'"
-      (click)="openSnackbar('Answer the question first.')"
+      [answer]="answer"
+      [answerStatus]="answer === selected ? status.SELECTED : status.BASIC"
+      (click)="answerSelected(answer)"
     />
-    <app-answer [answer]="'answer'" />
-    <app-answer [answer]="'answer'" />
-    <app-answer [answer]="'answer'" />
-    <button class="play_button" mat-flat-button>Submit</button>
+    }
+
+    <button class="play_button" mat-flat-button (click)="submitAnswer()">
+      Submit
+    </button>
   </div>
 </div>

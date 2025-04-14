@@ -1,11 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 export enum AnswerStatus {
-  BASIC,
-  SELECTED,
-  RIGHT,
-  WRONG,
+  BASIC = 'basic',
+  SELECTED = 'selected',
+  RIGHT = 'right',
+  WRONG = 'wrong',
 }
 
 @Component({
@@ -15,6 +15,8 @@ export enum AnswerStatus {
   styleUrl: './answer.component.scss',
 })
 export class AnswerComponent {
-  answers: string[] = ['Georgia', 'California', 'New York', 'Texas'];
   answer = input.required<string>();
+  answerStatus = input.required<AnswerStatus>();
+
+  status = AnswerStatus;
 }

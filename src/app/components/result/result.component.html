@@ -1,6 +1,20 @@
 <div class="result">
-  <h1 class="main-logo text-4xl">Your score is 5/10!</h1>
-  <app-question-result class="result_question" />
-  <app-question-result class="result_question" />
-  <button mat-flat-button>Go Home</button>
+  <h1 class="main-logo text-4xl">
+    Your score is {{ score$ | async }}/{{ (questions$ | async)?.length }}!
+  </h1>
+  @for (question of questions$ | async; track $index) {
+
+  <app-question-result
+    class="result_question"
+    [question]="question.question"
+    [answer]="question.answer"
+    [answerStatus]="
+      question.answer === question.question.correct_answer
+        ? status.RIGHT
+        : status.WRONG
+    "
+  />
+  }
+
+  <button mat-flat-button (click)="goHome()">Go Home</button>
 </div>
