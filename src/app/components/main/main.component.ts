@@ -4,14 +4,10 @@ import { QuizesComponent } from '../quizes/quizes.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
-import {
-  selectQuiz,
-  selectQuizzes,
-} from '../../state/selectors/quiz.selectors';
+import { selectQuizzes } from '../../state/selectors/quiz.selectors';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { randomArrEl } from '../../utils/random.util';
 import { Router } from '@angular/router';
-import { quizSelect } from '../../state/reducers/quiz.reducer';
 import { quizActions } from '../../state/actions/quiz.actions';
 
 @Component({

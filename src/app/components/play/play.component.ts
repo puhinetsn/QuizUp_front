@@ -8,8 +8,9 @@ import { AsyncPipe } from '@angular/common';
 import { selectAnswers } from '../../state/selectors/answer.selectors';
 import { Router } from '@angular/router';
 import { AnswerStatus } from './question/answer/answer.component';
-import { quizActions } from '../../state/actions/quiz.actions';
 import { answers } from '../../state/actions/answer.action';
+import { isLastQuestion } from '../../state/selectors/question.selectors';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-play',
@@ -27,6 +28,7 @@ export class PlayComponent {
   status = AnswerStatus;
 
   answers$ = this.store.select(selectAnswers);
+  isLastQuestion = toSignal(this.store.select(isLastQuestion));
   selected: string = '';
 
   openSnackbar(message: string) {
@@ -42,6 +44,10 @@ export class PlayComponent {
     if (this.selected === '') {
       this.openSnackbar('Answer the question first.');
     } else {
+      if (this.isLastQuestion()) {
+        this.router.navigate(['result']);
+      }
+
       this.store.dispatch(answers.questionSubmitted({ answer: this.selected }));
       this.selected = '';
     }

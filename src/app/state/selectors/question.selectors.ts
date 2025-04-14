@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { selectQuiz } from './quiz.selectors';
-import { selectAnswers } from './answer.selectors';
 
 export const selectQuizQuestions = createSelector(
   selectQuiz,
@@ -13,5 +12,11 @@ export const currentQuestionIndex =
 export const currentQuestion = createSelector(
   selectQuizQuestions,
   currentQuestionIndex,
-  (questions, index) => questions[index]
+  (questions, index) => questions[index] || questions[questions.length - 1]
+);
+
+export const isLastQuestion = createSelector(
+  selectQuizQuestions,
+  currentQuestionIndex,
+  (questions, index) => questions.length === index + 1
 );
